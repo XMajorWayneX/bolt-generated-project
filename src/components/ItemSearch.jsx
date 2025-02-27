@@ -62,15 +62,14 @@ function ItemSearch({ items, regions }) {
 
         <select value={schutzartFilter} onChange={(e) => setSchutzartFilter(e.target.value)}>
           <option value="">Schutzart</option>
-          <option value="Niedrig">Niedrig</option>
-          <option value="IP54">IP54</option>
-          <option value="IP65+">IP65+</option>
+          <option value="IP Hoch">IP Hoch</option>
+          <option value="IP Niedrig">IP Niedrig</option>
         </select>
 
         <select value={bwsFilter} onChange={(e) => setBwsFilter(e.target.value)}>
           <option value="">BWS</option>
-          <option value="Ja">Ja</option>
-          <option value="Nein">Nein</option>
+          <option value="BWS Ja">BWS Ja</option>
+          <option value="BWS Nein">BWS Nein</option>
         </select>
 
         <select value={typFilter} onChange={(e) => setTypFilter(e.target.value)}>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { doc, deleteDoc } from "firebase/firestore";
+import { db } from '../firebase';
 
 function RegionManagement({ regions, onAddRegion, onUpdateRegion, onDeleteRegion, items, onUpdateItem }) {
   const [name, setName] = useState('');
@@ -11,7 +13,7 @@ function RegionManagement({ regions, onAddRegion, onUpdateRegion, onDeleteRegion
       onUpdateRegion({ id: editingRegionId, name });
       setEditingRegionId(null);
     } else {
-      onAddRegion({ id: Date.now().toString(), name });
+      onAddRegion({ name });
     }
     setName('');
   };
@@ -21,7 +23,7 @@ function RegionManagement({ regions, onAddRegion, onUpdateRegion, onDeleteRegion
     setName(region.name);
   };
 
-  const handleDeleteRegion = (regionId) => {
+  const handleDeleteRegion = async (regionId) => {
     if (window.confirm('Möchten Sie dieses Gebiet wirklich löschen?')) {
       onDeleteRegion(regionId);
     }
